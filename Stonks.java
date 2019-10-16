@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import com.sun.java.util.jar.pack.ConstantPool.Index;
-
 public class Stonks {
 
     public static Scanner input = new Scanner(System.in);
@@ -37,12 +35,16 @@ public class Stonks {
 
 	int [][]redoInts = new int[10][4];
 	String [][][]redoEmployees = new String[10][size][10];
-	
+
+	System.out.println("Please enter current day:");
 	currentDay = input.nextInt();
-	commandString = input.nextLine();
-	System.out.println(manualString);
+	
+	
 
 	while (true) {
+
+	    System.out.println("payroll> ");
+	    commandString = input.nextLine();
 
 	    if (commandString.equals("add")) {
 		
@@ -59,30 +61,44 @@ public class Stonks {
 		System.out.print("\tType < salaried | commisioned | hourly >: ");
 		aux = input.nextLine();
 		employees[globalId][2] = aux;
+
+		while(true)
+		    {
+			System.out.print("\tType < salaried | commisioned | hourly >: ");
+			aux = input.nextLine();
+			employees[globalId][2] = aux;
 		
-		if(aux.equals("salaried")){
-		    System.out.print("\tEnter payment (numbers only): ");
-		    aux = input.nextLine();
-		    employees[globalId][3] = aux;
-		}
-		else if(aux.equals("comissioned")){
-		    System.out.print("\tEnter payment (numbers only): ");
-		    aux = input.nextLine();
-		    employees[globalId][3] = aux;
+			if(aux.equals("salaried")){
+			    System.out.print("\tEnter payment (numbers only): ");
+			    aux = input.nextLine();
+			    employees[globalId][3] = aux;
+			    break;
+			}
+			else if(aux.equals("comissioned")){
+			    System.out.print("\tEnter payment (numbers only): ");
+			    aux = input.nextLine();
+			    employees[globalId][3] = aux;
 
-		    System.out.print("\tEnter percentage (%) on sales (numbers only): ");
-		    aux = input.nextLine();
-		    employees[globalId][4] = aux;
-		}
-		else{
-		    employees[globalId][3] = "-1";
-		    employees[globalId][4] = "-1";
+			    System.out.print("\tEnter percentage (%) on sales (numbers only): ");
+			    aux = input.nextLine();
+			    employees[globalId][4] = aux;
+			    break;
+			}
+			else if(aux.equals("hourly")){
+			    employees[globalId][3] = "-1";
+			    employees[globalId][4] = "-1";
 
-		    System.out.print("\tEnter payment per worked hour (numbers only): ");
-		    aux = input.nextLine();
+			    System.out.print("\tEnter payment per worked hour (numbers only): ");
+			    aux = input.nextLine();
 		    
-		    employees[globalId][5] = aux;
-		}
+			    employees[globalId][5] = aux;
+			    break;
+			}
+			else {
+			    System.out.printf("\tInvalid!%n");
+			}
+		    }
+		
 					
 		System.out.print("\tPayment method < Mail | Bank | by Hand >: ");
 		aux = input.nextLine();
@@ -183,9 +199,9 @@ public class Stonks {
 	    } else if (commandString.equals("exit")) {
 
 	    } else if (commandString.equals("help") || commandString.equals("?")) {
-
+		System.out.println(manualString);
 	    } else {
-		
+		System.out.println("Invalid operation! check 'help' or '?' for avaliable commands");
 	    }
 	}
 	
