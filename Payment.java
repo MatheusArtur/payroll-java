@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Stonks {
+public class payment {
 
     public static Scanner input = new Scanner(System.in);
     static final int size = 100;
