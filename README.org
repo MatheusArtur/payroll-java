@@ -1,0 +1,16 @@
+* Payroll Java
+** Commands
+
+   add - Add a new employee
+   edit - Edit an existing employee
+   launch sale - Launch a sale revenue.
+   launch pointcard - Launch hourly employee pointcard.
+   service fee - Launch a service fee.
+   run payroll - Run payroll for the current day 
+   redoundo- Undo last operation.
+   new agenda - Register a new agenda. 
+   exit- Exit the program.
+   help - Show this menu.;
+	
+** INPUTS
+   Just follow the in-program instructions

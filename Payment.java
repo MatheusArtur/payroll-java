@@ -12,12 +12,15 @@ public class Payment {
 	String aux;
 	int intAux;
 	String manualString = "\tPossible commands for the system listed below:\n"
-	    + "\tadd - Add a new employee\n" + "\tedit - Edit an existing employee\n"
+	    + "\tadd - Add a new employee\n"
+	    + "\tedit - Edit an existing employee\n"
 	    + "\tlaunch sale - Launch a sale revenue.\n"
 	    + "\tlaunch pointcard - Launch hourly employee pointcard.\n"
 	    + "\tservice fee - Launch a service fee.\n"
-	    + "\trun payroll - Run payroll for the current day\n" + "\tundo- Undo last operation.\n"
-	    + "\tnew agenda - Register a new agenda.\n" + "\texit- Exit the program.\n"
+	    + "\trun payroll - Run payroll for the current day\n"
+	    + "\tundo redo - Undo last operation.\n"
+	    + "\tnew agenda - Register a new agenda.\n"
+	    + "\texit - Exit the program.\n"
 	    + "\thelp - Show this menu.\n";
 	
 
@@ -206,8 +209,8 @@ public class Payment {
 		System.out.println("Please input user ID:");
 		intAux = input.nextInt();
 
-		placer = employee[intAux][2];
-		if(placeer.equals("commisioned"))
+		placer = employeesy[intAux][2];
+		if(placer.equals("commisioned"))
 		    {
 			System.out.print("\tEnter payment per worked hour (numbers only): ");
 			aux = input.nextLine();
@@ -222,40 +225,43 @@ public class Payment {
 		System.out.println("Please input user ID:");
 		intAux = input.nextInt();
 
-		placer = employee[intAux][2];
-		if(placeer.equals("hourly"))
+		placer = employees[intAux][2];
+		if(placer.equals("hourly"))
 		    {
 			System.out.print("\tEnter worked hours today (numbers only): ");
 			aux = input.nextLine();
 			employees[intAux][10] = aux;
+			System.out.println("Operation complete!");
 		    }
 		else
 		    {
-			System.out.printf("\tInvalid! user is not commisioned%n");
+			System.out.printf("\tInvalid! user is not hourly%n");
 		    }
 	    }
 	    else if (commandString.equals("service fee")) {
 		System.out.println("Please input user ID:");
 		intAux = input.nextInt();
 
-		placer = employee[intAux][7];
-		if(placeer.equals("yes"))
+		placer = employees[intAux][7];
+		if(placer.equals("yes"))
 		    {
 			System.out.print("\tEnter tariff price (numbers only): ");
 			aux = input.nextLine();
 			employees[intAux][11] = aux;
+			System.out.println("Operation complete!");
 		    }
 		else
 		    {
-			System.out.printf("\tInvalid! user is not commisioned%n");
+			System.out.printf("\tInvalid! user is not part of the union%n");
 		    }
+		
 	    } else if (commandString.equals("run payroll")) {
-
-	    } else if (commandString.equals("undo")) {
-
-	    } else if (commandString.equals("redo")) {
-
-	    } else if (commandString.equals("new agenda")) {
+		System.out.printf("\tnot working%n");
+	    }
+		else if (commandString.equals("undo redo")) {
+		    System.out.printf("\tnot working%n");
+	    }
+		else if (commandString.equals("new agenda")) {
 		System.out.println("Please input user ID:");
 		intAux = input.nextInt();
 
@@ -267,9 +273,10 @@ public class Payment {
 		aux = input.nextLine();
 		employees[intAux][13] = aux;
 
+		System.out.println("Operation complete!");
 		
 	    } else if (commandString.equals("exit")) {
-
+		    return;
 	    } else if (commandString.equals("help") || commandString.equals("?")) {
 		System.out.println(manualString);
 	    } else {
@@ -279,4 +286,3 @@ public class Payment {
 	
     }
 }
-
